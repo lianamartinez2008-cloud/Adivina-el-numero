@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Adivina el Número</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="css" href="styles.css">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
         let mensaje = document.getElementById("mensaje");
         let intentos = document.getElementById(" ");
 
-        if (intento === "") {
+        if (intento === "intento") {
             mensaje.textContent = "Ingresa un número";
             return;
         }
@@ -46,14 +46,14 @@
             mensaje.className = "error";
         }
 
-        intentos.textContent = ": " + ;
+        intentos.textContent = ": contador " + ;
     }
 
     function reiniciar() {
         numeroSecreto = Math.floor(Math.random() * 10) + 1;
         contador = 0;
         document.getElementById("mensaje").textContent = " Juego reiniciado, intenta de nuevo";
-        document.getElementById(" ").textContent = "";
+        document.getElementById(" intento ").textContent = "";
         document.getElementById("numero").value = "";
     }
 </script>
