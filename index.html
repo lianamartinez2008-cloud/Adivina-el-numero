@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Adivina el Número</title>
-    <link rel="css" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="contenedor">
     <h1> Adivina el Número</h1>
-    <p>Estoy pensando en un número del 1 al 10..</p>
+    <p>Estoy pensando en un número del 1 al 10...</p>
 
     <input type="number" id="numero" placeholder="Escribe tu número">
     <button onclick="adivinar()">Intentar</button>
     <button onclick="reiniciar()">Reiniciar</button>
 
     <p id="mensaje"></p>
-    <p id=" "></p>
+    <p id="intentos"></p>
 </div>
 
 <script>
@@ -26,9 +26,9 @@
     function adivinar() {
         let intento = document.getElementById("numero").value;
         let mensaje = document.getElementById("mensaje");
-        let intentos = document.getElementById(" ");
+        let intentos = document.getElementById("intentos");
 
-        if (intento === "intento") {
+        if (intento === "") {
             mensaje.textContent = "Ingresa un número";
             return;
         }
@@ -46,14 +46,14 @@
             mensaje.className = "error";
         }
 
-        intentos.textContent = ": contador " + ;
+        intentos.textContent = "Intentos: " + contador;
     }
 
     function reiniciar() {
         numeroSecreto = Math.floor(Math.random() * 10) + 1;
         contador = 0;
         document.getElementById("mensaje").textContent = " Juego reiniciado, intenta de nuevo";
-        document.getElementById(" intento ").textContent = "";
+        document.getElementById("intentos").textContent = "";
         document.getElementById("numero").value = "";
     }
 </script>
