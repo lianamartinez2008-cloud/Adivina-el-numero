@@ -8,8 +8,8 @@
 <body>
 
 <div class="contenedor">
-    <h1>🎯 Adivina el Número</h1>
-    <p>Estoy pensando en un número del 1 al 100...</p>
+    <h1> Adivina el Número</h1>
+    <p>Estoy pensando en un número del 1 al 10..</p>
 
     <input type="number" id="numero" placeholder="Escribe tu número">
     <button onclick="adivinar()">Intentar</button>
@@ -20,7 +20,7 @@
 </div>
 
 <script>
-    let numeroSecreto = Math.floor(Math.random() * 100) + 1;
+    let numeroSecreto = Math.floor(Math.random() * 10) + 1;
     let contador = 0;
 
     function adivinar() {
@@ -29,20 +29,20 @@
         let intentos = document.getElementById("intentos");
 
         if (intento === "") {
-            mensaje.textContent = "⚠️ Ingresa un número";
+            mensaje.textContent = "Ingresa un número";
             return;
         }
 
         contador++;
 
         if (intento == numeroSecreto) {
-            mensaje.textContent = "🎉 ¡Acertaste! El número era " + numeroSecreto;
+            mensaje.textContent = " ¡Acertaste! El número era " + numeroSecreto;
             mensaje.className = "acierto";
         } else if (intento < numeroSecreto) {
-            mensaje.textContent = "❌ No acertaste, intenta con un número mayor";
+            mensaje.textContent = " No acertaste, intenta con un número mayor";
             mensaje.className = "error";
         } else {
-            mensaje.textContent = "❌ No acertaste, intenta con un número menor";
+            mensaje.textContent = " No acertaste, intenta con un número menor";
             mensaje.className = "error";
         }
 
@@ -50,9 +50,9 @@
     }
 
     function reiniciar() {
-        numeroSecreto = Math.floor(Math.random() * 100) + 1;
+        numeroSecreto = Math.floor(Math.random() * 10) + 1;
         contador = 0;
-        document.getElementById("mensaje").textContent = "🔄 Juego reiniciado, intenta de nuevo";
+        document.getElementById("mensaje").textContent = " Juego reiniciado, intenta de nuevo";
         document.getElementById("intentos").textContent = "";
         document.getElementById("numero").value = "";
     }
