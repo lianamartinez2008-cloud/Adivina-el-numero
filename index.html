@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Adivina el Número</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>🎯 Adivina el Número</h1>
+    <p>Estoy pensando en un número del 1 al 100...</p>
+
+    <input type="number" id="numero" placeholder="Escribe tu número">
+    <button onclick="adivinar()">Intentar</button>
+    <button onclick="reiniciar()">Reiniciar</button>
+
+    <p id="mensaje"></p>
+    <p id="intentos"></p>
+</div>
+
+<script>
+    let numeroSecreto = Math.floor(Math.random() * 100) + 1;
+    let contador = 0;
+
+    function adivinar() {
+        let intento = document.getElementById("numero").value;
+        let mensaje = document.getElementById("mensaje");
+        let intentos = document.getElementById("intentos");
+
+        if (intento === "") {
+            mensaje.textContent = "⚠️ Ingresa un número";
+            return;
+        }
+
+        contador++;
+
+        if (intento == numeroSecreto) {
+            mensaje.textContent = "🎉 ¡Acertaste! El número era " + numeroSecreto;
+            mensaje.className = "acierto";
+        } else if (intento < numeroSecreto) {
+            mensaje.textContent = "❌ No acertaste, intenta con un número mayor";
+            mensaje.className = "error";
+        } else {
+            mensaje.textContent = "❌ No acertaste, intenta con un número menor";
+            mensaje.className = "error";
+        }
+
+        intentos.textContent = "Intentos: " + contador;
+    }
+
+    function reiniciar() {
+        numeroSecreto = Math.floor(Math.random() * 100) + 1;
+        contador = 0;
+        document.getElementById("mensaje").textContent = "🔄 Juego reiniciado, intenta de nuevo";
+        document.getElementById("intentos").textContent = "";
+        document.getElementById("numero").value = "";
+    }
+</script>
+
+</body>
+</html>
