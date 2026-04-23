@@ -16,7 +16,7 @@
     <button onclick="reiniciar()">Reiniciar</button>
 
     <p id="mensaje"></p>
-    <p id="intentos"></p>
+    <p id=" "></p>
 </div>
 
 <script>
@@ -26,7 +26,7 @@
     function adivinar() {
         let intento = document.getElementById("numero").value;
         let mensaje = document.getElementById("mensaje");
-        let intentos = document.getElementById("intentos");
+        let intentos = document.getElementById(" ");
 
         if (intento === "") {
             mensaje.textContent = "Ingresa un número";
@@ -46,14 +46,14 @@
             mensaje.className = "error";
         }
 
-        intentos.textContent = "Intentos: " + contador;
+        intentos.textContent = ": " + ;
     }
 
     function reiniciar() {
         numeroSecreto = Math.floor(Math.random() * 10) + 1;
         contador = 0;
         document.getElementById("mensaje").textContent = " Juego reiniciado, intenta de nuevo";
-        document.getElementById("intentos").textContent = "";
+        document.getElementById(" ").textContent = "";
         document.getElementById("numero").value = "";
     }
 </script>
